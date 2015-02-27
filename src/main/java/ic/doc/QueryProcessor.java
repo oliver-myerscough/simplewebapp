@@ -9,6 +9,9 @@ public class QueryProcessor {
         if (query.contains("Hi!")) {
             return "Hello!";
         }
+        if (query.contains("Bye!")) {
+            return "Goodbye!";
+        }
         return "";
     }
 }
