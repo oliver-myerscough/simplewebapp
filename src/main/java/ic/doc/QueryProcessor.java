@@ -12,7 +12,7 @@ public class QueryProcessor {
         if (query.contains("Bye!")) {
             return "Goodbye!";
         }
-        if (query.contains("Does it work?")) {
+        if (query.contains("Does it deploy?")) {
             return "Let's see!";
         }
         return "";
