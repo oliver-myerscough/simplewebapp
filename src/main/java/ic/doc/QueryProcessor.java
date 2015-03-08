@@ -13,7 +13,7 @@ public class QueryProcessor {
             return "Goodbye!";
         }
         if (query.contains("Does it work?")) {
-            return "Yes!";
+            return "Let's see!";
         }
         return "";
     }
