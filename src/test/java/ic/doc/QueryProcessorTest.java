@@ -29,4 +29,13 @@ public class QueryProcessorTest {
     }
 
 
+    @Test
+    public void largest() {
+
+        String q = "fcdbb0c0: which of the following numbers is the largest: 80, 333, 77, 96";
+        assertEquals("333", queryProcessor.process(q));
+
+    }
+
+
 }

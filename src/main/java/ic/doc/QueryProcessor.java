@@ -1,5 +1,7 @@
 package ic.doc;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,6 +10,7 @@ public class QueryProcessor {
     Pattern sum = Pattern.compile("what is ([0-9]+) plus ([0-9]+)");
 
     Pattern largest = Pattern.compile("which of the following numbers is the largest");
+    Pattern number = Pattern.compile("[0-9]+");
 
 
     public String process(String query) {
@@ -38,6 +41,22 @@ public class QueryProcessor {
 
         }
 
+
+        Matcher m2 = largest.matcher(query);
+        if (m2.find()) {
+
+            int max = Integer.MIN_VALUE;
+            Matcher numberMatcher = number.matcher(query);
+
+            while (numberMatcher.find()) {
+                int v = Integer.parseInt(numberMatcher.group());
+                max = Math.max(max, v);
+            }
+
+
+            return max + "";
+
+        }
 
 
 
