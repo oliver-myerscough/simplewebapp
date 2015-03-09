@@ -12,6 +12,8 @@ public class QueryProcessor {
 
     Pattern largest = Pattern.compile("which of the following numbers is the largest");
     Pattern number = Pattern.compile("[0-9]+");
+    
+    Pattern prime = Pattern.compile("which of the following numbers are prime");
 
 
     public String process(String query) {
@@ -75,9 +77,30 @@ public class QueryProcessor {
             return max + "";
 
         }
+        
+        Matcher m3 = prime.matcher(query);
+        if (m3.find()) {
 
+            Matcher numberMatcher = number.matcher(query);
+            
+            List<Integer> primeNums = new ArrayList<Integer>();
+            
+            while (numberMatcher.find()) {
+                int v = Integer.parseInt(numberMatcher.group());
+                if(isPrime(v)) {
+                	primeNums.add(v);
+                }
 
+            }
+
+            return primeNums.toString() + "";
+
+        }
 
         return "";
+    }
+    
+    public static boolean isPrime(int n) {
+        return !new String(new char[n]).matches(".?|(..+?)\\1+");
     }
 }
