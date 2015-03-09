@@ -137,6 +137,7 @@ public class QueryProcessor {
             }
         }
 
+        /*
         // optional default is GET
         try {
 
@@ -167,6 +168,8 @@ public class QueryProcessor {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        */
 
         return "";
 

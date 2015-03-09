@@ -64,5 +64,13 @@ public class QueryProcessorTest {
 
     }
 
+    @Test
+    public void addAndMultiplyNumbers2() {
+
+        assertEquals(queryProcessor.process("?q=0c8df980:what is 12 multiplied by 7 plus 7"), "91");
+
+    }
+
+
 
 }
