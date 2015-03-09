@@ -28,6 +28,14 @@ public class QueryProcessorTest {
 
     }
 
+    @Test
+    public void multiplyNumbers() {
+
+        assertEquals(queryProcessor.process("/?q=28a22cb0: what is 0 multiplied by 12"), "0");
+
+    }
+
+
 
     @Test
     public void largest() {

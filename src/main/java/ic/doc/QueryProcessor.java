@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 public class QueryProcessor {
 
     Pattern sum = Pattern.compile("what is ([0-9]+) plus ([0-9]+)");
+    Pattern multiply = Pattern.compile("what is ([0-9]+) multiplied by ([0-9]+)");
 
     Pattern largest = Pattern.compile("which of the following numbers is the largest");
     Pattern number = Pattern.compile("[0-9]+");
@@ -38,6 +39,16 @@ public class QueryProcessor {
             int b = Integer.parseInt(m.group(2));
 
             return a + b + "";
+
+        }
+
+        Matcher mMult = multiply.matcher(query);
+        if (mMult.find()) {
+
+            int a = Integer.parseInt(mMult.group(1));
+            int b = Integer.parseInt(mMult.group(2));
+
+            return a * b + "";
 
         }
 
