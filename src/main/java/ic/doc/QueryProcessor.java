@@ -13,7 +13,9 @@ import java.util.regex.Pattern;
 
 public class QueryProcessor {
 
+
 	Pattern plusplus = Pattern.compile("what is ([0-9]+) plus ([0-9]+) plus ([0-9]+)");
+    Pattern sumMult = Pattern.compile("what is ([0-9]+) multiplied by ([0-9]+) plus ([0-9]+)");
     Pattern sum = Pattern.compile("what is ([0-9]+) plus ([0-9]+)");
     Pattern minus = Pattern.compile("what is ([0-9]+) minus ([0-9]+)");
     Pattern multiply = Pattern.compile("what is ([0-9]+) multiplied by ([0-9]+)");
@@ -64,6 +66,18 @@ public class QueryProcessor {
             int c = Integer.parseInt(mplus.group(3));
 
             return a + b + c + "";
+
+        }
+
+
+        Matcher mSumMult = sumMult.matcher(query);
+        if (mSumMult.find()) {
+
+            int a = Integer.parseInt(mSumMult.group(1));
+            int b = Integer.parseInt(mSumMult.group(2));
+            int c = Integer.parseInt(mSumMult.group(3));
+
+            return a * b + c + "";
 
         }
 
@@ -137,6 +151,7 @@ public class QueryProcessor {
             }
         }
 
+        /*
         // optional default is GET
         try {
 
@@ -168,7 +183,11 @@ public class QueryProcessor {
             e.printStackTrace();
         }
 
+        */
+
         return "";
+
+
 
     }
     
