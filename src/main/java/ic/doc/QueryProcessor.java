@@ -1,7 +1,5 @@
 package ic.doc;
 
-import org.eclipse.jetty.client.HttpClient;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
