@@ -43,6 +43,11 @@ public class QueryProcessor {
         }
 
 
+        if(query.contains("Prime Minister")) {
+            return "David Cameron";
+        }
+
+
         Matcher m = sum.matcher(query);
         if (m.find()) {
 
