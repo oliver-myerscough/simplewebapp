@@ -37,9 +37,12 @@ public class QueryProcessor {
         if(query.contains("Eiffel tower")) {
         	return "Paris";
         }
-        
-        
-       
+
+        if(query.contains("Spain")) {
+            return "Peseta";
+        }
+
+
         Matcher m = sum.matcher(query);
         if (m.find()) {
 
