@@ -16,9 +16,6 @@ public class QueryProcessor {
 
     public String process(String query) {
 
-
-
-
         if (query.contains("Imperial")) {
             return "Imperial is a university in London.";
         }
@@ -31,7 +28,17 @@ public class QueryProcessor {
         if (query.contains("Does it deploy?")) {
             return "Let's see!";
         }
-
+        
+        if(query.contains("banana")) {
+        	return "yellow";
+        }
+        
+        if(query.contains("Eiffel tower")) {
+        	return "Paris";
+        }
+        
+        
+       
         Matcher m = sum.matcher(query);
         if (m.find()) {
 
