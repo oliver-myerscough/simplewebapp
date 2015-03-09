@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 public class QueryProcessor {
 
     Pattern sum = Pattern.compile("what is ([0-9]+) plus ([0-9]+)");
+    Pattern minus = Pattern.compile("what is ([0-9]+) minus ([0-9]+)");
     Pattern multiply = Pattern.compile("what is ([0-9]+) multiplied by ([0-9]+)");
 
     Pattern largest = Pattern.compile("which of the following numbers is the largest");
@@ -38,9 +39,17 @@ public class QueryProcessor {
         if(query.contains("Eiffel tower")) {
         	return "Paris";
         }
-        
-        
-       
+
+        if(query.contains("Spain")) {
+            return "Peseta";
+        }
+
+
+        if(query.contains("Prime Minister")) {
+            return "David Cameron";
+        }
+
+
         Matcher m = sum.matcher(query);
         if (m.find()) {
 
@@ -50,6 +59,18 @@ public class QueryProcessor {
             return a + b + "";
 
         }
+
+        Matcher mMInus = minus.matcher(query);
+;
+        if (mMInus.find()) {
+
+            int a = Integer.parseInt(mMInus.group(1));
+            int b = Integer.parseInt(mMInus.group(2));
+
+            return a - b + "";
+
+        }
+
 
         Matcher mMult = multiply.matcher(query);
         if (mMult.find()) {
