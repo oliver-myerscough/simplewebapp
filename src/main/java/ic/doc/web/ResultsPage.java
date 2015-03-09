@@ -15,13 +15,7 @@ public class ResultsPage extends HtmlPage {
     @Override
     protected void writeContentTo(PrintWriter writer) {
         String result = new QueryProcessor().process(query);
-        if (result == null) {
-            writer.println("<p>Nothing known about " + query + "</p>");
-        } else {
-            writer.println("<h1>" + query + "</h1>");
-            writer.println("<p>" + result + "</p>");
-        }
+        writer.append(result);
 
-        writer.println("<p><a href=\"/\">Back to Search Page</a></p>");
     }
 }
