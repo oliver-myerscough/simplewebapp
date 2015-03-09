@@ -16,6 +16,6 @@ public class ResultsPage extends HtmlPage {
     protected void writeContentTo(PrintWriter writer) {
         String result = new QueryProcessor().process(query);
         writer.append(result);
-        
+
     }
 }

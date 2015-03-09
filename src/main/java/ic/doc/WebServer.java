@@ -32,7 +32,7 @@ public class WebServer {
             if (req.getParameter("q") == null) {
                 new IndexPage().writeTo(resp);
             } else {
-                new ResultsPage(req.getParameter("q")).writeTo(resp);
+                new ApiResponse(req.getParameter("q")).writeTo(resp);
             }
         }
     }
