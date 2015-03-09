@@ -57,6 +57,12 @@ public class QueryProcessorTest {
     	String q = "/?q=4a9df0b0:%20which%20of%20the%20following%20numbers%20are%20primes:%20223,%2077";
     	assertEquals("", queryProcessor.process(q));
     }
+    
+    @Test
+    public void prime2() {
+    	String q = "/?q=4a9df0b0:%20which%20of%20the%20following%20numbers%20are%20primes:%3,%7";
+    	assertEquals("3, 7", queryProcessor.process(q));
+    }
 
 
 }
