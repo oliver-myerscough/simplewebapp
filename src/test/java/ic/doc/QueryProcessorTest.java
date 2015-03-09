@@ -11,10 +11,6 @@ public class QueryProcessorTest {
 
     QueryProcessor queryProcessor = new QueryProcessor();
 
-    @Test
-    public void returnsEmptyStringIfCannotProcessQuery() throws Exception {
-        assertThat(queryProcessor.process("test"), is(""));
-    }
 
     @Test
     public void knowsAboutSpa() throws Exception {
@@ -56,6 +52,15 @@ public class QueryProcessorTest {
     public void prime() {
     	String q = "/?q=4a9df0b0:%20which%20of%20the%20following%20numbers%20are%20primes:%20223,%2077";
     	assertEquals("", queryProcessor.process(q));
+    }
+
+
+
+    @Test
+    public void addAndMultiplyNumbers() {
+
+        assertEquals(queryProcessor.process("00829e10: what is 14 multiplied by 18 plus 16"), "268");
+
     }
 
 
