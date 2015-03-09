@@ -1,11 +1,5 @@
 package ic.doc;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.ProtocolException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -14,7 +8,10 @@ import java.util.regex.Pattern;
 public class QueryProcessor {
 
 
-    Pattern sumMult = Pattern.compile("what is ([0-9]+) multiplied by ([0-9]+) plus ([0-9]+)");
+    Pattern sumMult = Pattern.compile("what is ([0-9]+) plus ([0-9]+) multiplied by ([0-9]+)");
+
+
+    Pattern multSum = Pattern.compile("what is ([0-9]+) multiplied by ([0-9]+) plus ([0-9]+)");
     Pattern sum = Pattern.compile("what is ([0-9]+) plus ([0-9]+)");
     Pattern minus = Pattern.compile("what is ([0-9]+) minus ([0-9]+)");
     Pattern multiply = Pattern.compile("what is ([0-9]+) multiplied by ([0-9]+)");
@@ -64,6 +61,17 @@ public class QueryProcessor {
             int a = Integer.parseInt(mSumMult.group(1));
             int b = Integer.parseInt(mSumMult.group(2));
             int c = Integer.parseInt(mSumMult.group(3));
+
+            return a + b * c + "";
+
+        }
+
+        Matcher mMultSum = multSum.matcher(query);
+        if (mMultSum.find()) {
+
+            int a = Integer.parseInt(mMultSum.group(1));
+            int b = Integer.parseInt(mMultSum.group(2));
+            int c = Integer.parseInt(mMultSum.group(3));
 
             return a * b + c + "";
 

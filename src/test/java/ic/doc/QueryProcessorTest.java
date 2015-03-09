@@ -52,7 +52,7 @@ public class QueryProcessorTest {
     @Ignore
     @Test
     public void prime() {
-    	String q = "/?q=4a9df0b0:%20which%20of%20the%20following%20numbers%20are%20primes:%20223,%2077";
+    	String q = "/?q=4a9df0b0: which of the following numbers are primes: 223, 77";
     	assertEquals("223", queryProcessor.process(q));
     }
    
@@ -70,6 +70,14 @@ public class QueryProcessorTest {
     public void addAndMultiplyNumbers2() {
 
         assertEquals(queryProcessor.process("?q=0c8df980:what is 12 multiplied by 7 plus 7"), "91");
+
+    }
+
+
+    @Test
+    public void plusMultipledBy() {
+
+        assertEquals(queryProcessor.process("23e5ff50: what is 12 plus 17 multiplied by 10"), "182");
 
     }
 
