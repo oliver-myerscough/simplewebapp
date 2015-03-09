@@ -1,7 +1,5 @@
 package ic.doc;
 
-import org.eclipse.jetty.client.HttpClient;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,7 +22,7 @@ public class QueryProcessor {
     Pattern largest = Pattern.compile("which of the following numbers is the largest");
     Pattern number = Pattern.compile("[0-9]+");
     
-    Pattern prime = Pattern.compile("which of the following numbers are prime");
+    Pattern prime = Pattern.compile("which of the following numbers are primes");
 
 
     public String process(String query) {
@@ -176,7 +174,15 @@ public class QueryProcessor {
 
     }
     
-    public static boolean isPrime(int n) {
-        return !new String(new char[n]).matches(".?|(..+?)\\1+");
-    }
+    public static Boolean isPrime(int num){ 
+        if(num==2){ 
+          return(true);
+        }
+        for(int i=2;i<=(int)Math.sqrt(num)+1;i++){ 
+          if(num%i==0){ 
+            return(false);
+          }
+        }
+        return(true); 
+      }
 }
