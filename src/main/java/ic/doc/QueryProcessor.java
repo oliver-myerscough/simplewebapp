@@ -21,6 +21,8 @@ public class QueryProcessor {
 
     Pattern largest = Pattern.compile("which of the following numbers is the largest");
     Pattern number = Pattern.compile("[0-9]+");
+    
+    Pattern prime = Pattern.compile("which of the following numbers are prime");
 
 
     public String process(String query) {
@@ -37,21 +39,21 @@ public class QueryProcessor {
         if (query.contains("Does it deploy?")) {
             return "Let's see!";
         }
-        
-        if(query.contains("banana")) {
-        	return "yellow";
-        }
-        
-        if(query.contains("Eiffel tower")) {
-        	return "Paris";
+
+        if (query.contains("banana")) {
+            return "yellow";
         }
 
-        if(query.contains("Spain")) {
+        if (query.contains("Eiffel tower")) {
+            return "Paris";
+        }
+
+        if (query.contains("Spain")) {
             return "Peseta";
         }
 
 
-        if(query.contains("Prime Minister")) {
+        if (query.contains("Prime Minister")) {
             return "David Cameron";
         }
 
@@ -67,7 +69,7 @@ public class QueryProcessor {
         }
 
         Matcher mMInus = minus.matcher(query);
-;
+        ;
         if (mMInus.find()) {
 
             int a = Integer.parseInt(mMInus.group(1));
@@ -105,6 +107,23 @@ public class QueryProcessor {
 
         }
 
+        Matcher m3 = prime.matcher(query);
+        if (m3.find()) {
+
+            Matcher numberMatcher = number.matcher(query);
+
+            List<Integer> primeNums = new ArrayList<Integer>();
+
+            while (numberMatcher.find()) {
+                int v = Integer.parseInt(numberMatcher.group());
+                if (isPrime(v)) {
+                    primeNums.add(v);
+                }
+
+                return primeNums.toString() + "";
+
+            }
+        }
 
         // optional default is GET
         try {
@@ -139,7 +158,11 @@ public class QueryProcessor {
             e.printStackTrace();
         }
 
-
         return "";
+
+    }
+    
+    public static boolean isPrime(int n) {
+        return !new String(new char[n]).matches(".?|(..+?)\\1+");
     }
 }
