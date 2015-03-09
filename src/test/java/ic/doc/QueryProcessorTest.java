@@ -58,6 +58,11 @@ public class QueryProcessorTest {
     	assertEquals("223", queryProcessor.process(q));
     }
    
+    @Test
+    public void plusplus() {
+    	String q = "/?q=80a75e00: what is 5 plus 11 plus 3";
+    	assertEquals("19", queryProcessor.process(q));
+    }
 
 
 }

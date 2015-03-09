@@ -13,15 +13,16 @@ import java.util.regex.Pattern;
 
 public class QueryProcessor {
 
+	Pattern plusplus = Pattern.compile("what is ([0-9]+) plus ([0-9]+) plus ([0-9]+)");
     Pattern sum = Pattern.compile("what is ([0-9]+) plus ([0-9]+)");
     Pattern minus = Pattern.compile("what is ([0-9]+) minus ([0-9]+)");
     Pattern multiply = Pattern.compile("what is ([0-9]+) multiplied by ([0-9]+)");
+    
 
     Pattern largest = Pattern.compile("which of the following numbers is the largest");
     Pattern number = Pattern.compile("[0-9]+");
     
     Pattern prime = Pattern.compile("which of the following numbers are primes");
-
 
     public String process(String query) {
 
@@ -54,6 +55,17 @@ public class QueryProcessor {
         if (query.contains("Prime Minister")) {
             return "David Cameron";
         }
+        
+        Matcher mplus = plusplus.matcher(query);
+        if (mplus.find()) {
+
+            int a = Integer.parseInt(mplus.group(1));
+            int b = Integer.parseInt(mplus.group(2));
+            int c = Integer.parseInt(mplus.group(3));
+
+            return a + b + c + "";
+
+        }
 
 
         Matcher m = sum.matcher(query);
@@ -65,6 +77,8 @@ public class QueryProcessor {
             return a + b + "";
 
         }
+        
+        
 
         Matcher mMInus = minus.matcher(query);
         ;
