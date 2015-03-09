@@ -29,6 +29,13 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void sutractNumbers() {
+
+        assertEquals(queryProcessor.process("q=55a9bcf0: what is 10 minus 1"), "9");
+
+    }
+
+    @Test
     public void multiplyNumbers() {
 
         assertEquals(queryProcessor.process("/?q=28a22cb0: what is 0 multiplied by 12"), "0");
